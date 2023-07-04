@@ -1,8 +1,9 @@
 import socket
 import time
+#from servermodule.python_ui import *
 
 # 서버 설정: IP 주소와 포트 번호
-server_ip = '172.20.10.3'
+server_ip = '192.168.1.23'
 server_port = 1103
 
 # 소켓 객체 생성 및 설정
@@ -37,6 +38,8 @@ client_socket.send("안녕하세요, 서버!".encode('utf-8'))
 
 # 서버로부터 데이터 수신
 data = client_socket.recv(1024).decode('utf-8')
+cltname = input("Enter your name: ")
+client_socket.send(cltname.encode('utf-8'))
 print(f"서버로부터 받은 데이터: {data}")
 
 # 서버에게 키워드 전송
